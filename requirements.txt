@@ -1,1 +1,20 @@
-#Dependencias
+# Dependencias mínimas para empezar
+# ==================================
+
+# Lenguaje de Programción
+python==3.13.5
+
+# Framework de testing principal
+
+playwright==1.54.0
+pytest==8.4.1
+pytest-playwright==0.7.0
+
+# Reportes HTML
+pytest-html==4.1.1
+
+# Generación de datos de prueba
+faker==37.4.2
+
+# Variables de entorno
+python-dotenv==1.1.1
