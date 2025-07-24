@@ -77,3 +77,12 @@ class BasePage:
         """Verificar que la cuenta fue eliminada"""
         expect(self.page.locator(Selectors.ACCOUNT_DELETED_TEXT)).to_be_visible()
         time.sleep(2)
+
+    """<<<Metodo agregado para el TEST CASE 2>>>"""
+
+    def click_logout(self):
+        """Hacer click en Logout"""
+        print("Haciendo click en Logout...")
+        self.click_element(Selectors.LOGOUT_BUTTON)
+        print("Logout realizado")
+        time.sleep(2)

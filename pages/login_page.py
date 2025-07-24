@@ -6,6 +6,7 @@ interacciones con la página de login/signup de automationexercise.com
 """
 
 # Importamos las librerías necesarias
+import time
 from playwright.sync_api import Page, expect  # Para interactuar con el navegador
 from pages.base_page import BasePage          # Heredamos de la clase base
 
@@ -194,4 +195,63 @@ class LoginPage(BasePage):
         """
         print("Verificando mensaje de error de signup...")
         expect(self.page.locator(self.signup_error_message)).to_be_visible()
+        print("Mensaje de error confirmado")
+
+
+    """<<<Metodos agregados para el TEST CASE 2>>>"""
+
+
+    def fill_login_form(self, email: str, password: str):
+        """
+        Llena el formulario de login con credenciales.
+        
+        Args:
+            email (str): Email del usuario
+            password (str): Contraseña del usuario
+        """
+        print(f"Llenando formulario de login para: {email}")
+        
+        # Usar los métodos heredados de BasePage
+        self.fill_input(self.login_email_input, email)
+        self.fill_input(self.login_password_input, password)
+        
+        print("Formulario de login completado")
+    
+    def click_login_button(self):
+        """
+        Hace click en el botón de Login.
+        """
+        print("Haciendo click en el botón 'Login'...")
+        self.click_element(self.login_button)
+        print("Botón Login presionado")
+        time.sleep(2)  # Pausa para ver el resultado
+    
+    def login_user(self, email: str, password: str):
+        """
+        Proceso completo de login de usuario.
+        
+        Args:
+            email (str): Email del usuario
+            password (str): Contraseña del usuario
+            
+        Este método combina llenar el formulario y hacer click en login.
+        """
+        print(f"Iniciando proceso de login para: {email}")
+        
+        # Llamar a los métodos individuales
+        self.fill_login_form(email, password)
+        self.click_login_button()
+        
+        print("Proceso de login completado")
+    
+    def verify_login_error(self):
+        """
+        Verifica que aparezca el mensaje de error de login.
+        
+        ¿Cuándo se usa?
+        - En tests negativos (credenciales incorrectas)
+        - Para verificar que el sistema valida correctamente
+        """
+        print("Verificando mensaje de error de login...")
+        expect(self.page.locator(self.login_error_message)).to_be_visible()
         print("Mensaje de error confirmado")

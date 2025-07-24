@@ -48,7 +48,7 @@ def page(browser: Browser):
         
         # Si la URL contiene dominios de anuncios, bloquearla
         if any(ad_domain in request.url for ad_domain in ad_domains):
-            print(f"🚫 Bloqueando anuncio: {request.url}")
+            print(f"Bloqueando anuncio: {request.url}")
             route.abort()
         else:
             route.continue_()
