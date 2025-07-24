@@ -262,10 +262,10 @@ class TestCase1Complete:
         print("\n" + "="*60)
         print("TEST CASE 1 COMPLETADO EXITOSAMENTE")
         print("="*60)
-        print("✅ Usuario registrado correctamente")
-        print("✅ Proceso end-to-end verificado")
-        print("✅ Cuenta de prueba eliminada (cleanup)")
-        print("✅ Todos los 18 pasos ejecutados sin errores")
+        print("Usuario registrado correctamente")
+        print("Proceso end-to-end verificado")
+        print("Cuenta de prueba eliminada (cleanup)")
+        print("Todos los 18 pasos ejecutados sin errores")
         print("="*60)
         
         # Pausa final opcional para ver el resultado

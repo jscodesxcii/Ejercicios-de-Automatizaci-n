@@ -276,3 +276,35 @@ class SignupPage(BasePage):
         self.click_create_account()
         
         print("Proceso completo de registro finalizado")
+
+    
+    """<<<Metodo agregado para el TEST CASE 2>>>"""
+
+    def complete_full_registration(self, user_data: dict, birth_data: dict):
+        """
+        Método conveniente que completa todo el proceso de registro.
+        
+        Args:
+            user_data (dict): Datos del usuario
+            birth_data (dict): Fecha de nacimiento
+        
+        ¿Qué hace?
+        - Combina todos los pasos en un solo método
+        - Útil para tests que necesitan crear usuarios rápidamente
+        - Maneja todo desde información de cuenta hasta crear cuenta
+        """
+        print("Iniciando proceso completo de registro rápido...")
+        
+        # 1. Verificar que estamos en la página correcta
+        self.verify_account_information_page()
+        
+        # 2. Llenar información de cuenta
+        self.fill_account_information(user_data, birth_data)
+        
+        # 3. Llenar información de dirección
+        self.fill_address_information(user_data)
+        
+        # 4. Crear la cuenta
+        self.click_create_account()
+        
+        print("Proceso completo de registro finalizado")
